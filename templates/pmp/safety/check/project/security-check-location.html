@@ -1,0 +1,45 @@
+<ion-header-bar class="bar-positive" align-title="center">
+    <div class="buttons">
+        <button class="button button-icon ion-ios-arrow-back" nav-direction="back" ui-sref="security-check-add">
+        </button>
+    </div>
+    <div class="h1 title">请选择检查位置</div>
+    <button class="button button-clear" ng-click="showPrompt()">新增</button>
+</ion-header-bar>
+
+<ion-view>
+    <ion-content>
+        <ion-list>
+            <div class="item item-divider item-icon-right no-border-bottom"
+                 ng-click="showLocationAdd =! showLocationAdd" ion-affix>
+                新增检查位置
+                <i class="icon ion-chevron-up f14"></i>
+            </div>
+            <ion-item ng-show="!showLocationAdd">
+                暂无数据
+            </ion-item>
+        </ion-list>
+
+        <ion-list>
+            <div class="item item-divider item-icon-right no-border-top" ng-click="showLocation =! showLocation"
+                 ion-affix>
+                检查位置
+                <i class="icon ion-chevron-up f14"></i>
+            </div>
+            <div ng-show="!showLocation">
+                <ion-item ui-sref="security-check-add">
+                    位置1
+                </ion-item>
+                <ion-item ui-sref="security-check-add">
+                    位置2
+                </ion-item>
+                <ion-item ui-sref="security-check-add">
+                    位置3
+                </ion-item>
+                <ion-item ui-sref="security-check-add">
+                    位置4
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

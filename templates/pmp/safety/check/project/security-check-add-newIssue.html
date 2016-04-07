@@ -1,0 +1,22 @@
+<ion-header-bar class="bar-positive" align-title="center">
+    <div class="buttons">
+        <button class="button button-icon ion-ios-arrow-back" nav-direction="back" ui-sref="security-check-add-subject">
+        </button>
+    </div>
+    <div class="h1 title">新增检查问题</div>
+    <button class="button button-clear" ng-click='segureToIssure()'>确定</button>
+</ion-header-bar>
+
+<ion-view>
+    <ion-content>
+        <ion-list>
+            <ion-item class='item-divider'>
+                <p>自定义检查问题</p>
+            </ion-item>
+            <ion-item>
+                <textarea class="no-padding width-full" rows="10" ng-model='customerPro.text'
+                          ng-change="checkText()"></textarea>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
