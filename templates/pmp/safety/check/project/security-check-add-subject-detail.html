@@ -1,12 +1,9 @@
-<ion-header-bar class="bar-positive" align-title="center">
-    <div class="buttons">
+<ion-view view-title="{{safetyContent.checkContentName}}">
+    <ion-nav-buttons side="left">
         <button class="button button-icon ion-ios-arrow-back" nav-direction="back" ui-sref="security-check-add-subject">
         </button>
-    </div>
-    <div class="h1 title">{{safetyContent.checkContentName}}</div>
-</ion-header-bar>
+    </ion-nav-buttons>
 
-<ion-view>
     <ion-content>
         <ion-list>
             <ion-checkbox ng-click="!item.disabled?showSelected(item):null" ng-repeat='item in checkItems'

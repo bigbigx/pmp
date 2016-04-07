@@ -1,76 +1,24 @@
-<ion-header-bar class="bar-positive" align-title="center">
-    <div class="buttons">
-        <button class="button button-icon ion-ios-arrow-back" nav-direction="back"
-                ui-sref="security-check-project-edit">
+<ion-view view-title="{{checkItem.checkItemName}}">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon ion-ios-arrow-back" nav-direction="back" ui-sref="security-check-project-edit">
         </button>
-    </div>
-    <div class="h1 title">新增检查</div>
-    <button class="button button-clear">确定</button>
-</ion-header-bar>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ui-sref="security-check-add-subject">确定</button>
+    </ion-nav-buttons>
 
-<div class="list has-header">
-    <ion-item class="item item-icon-right" ui-sref="security-check-add-subject-change" nav-direction="forward">
-        更换安全检查内容
-        <i class="icon ion-ios-arrow-right"></i>
-    </ion-item>
-    <ion-item class="item positive center" ui-sref="security-check-add-subject-detail" nav-direction="forward">
-        <i class="icon ion-plus"></i>
-        添加安全检查内容
-    </ion-item>
-</div>
+    <ion-content scroll="false">
+        <ion-scroll>
+            <ion-list>
+                <ion-checkbox ng-model="item.selected" ng-click="showSelected(item)" ng-repeat='item in checkProblems'>
+                    {{item.checkProblemName}}
+                </ion-checkbox>
+            </ion-list>
+        </ion-scroll>
 
-<ion-view>
-    <ion-content class="margin-top-105 security-check-add-subject">
-
-
-        <ion-list class="list">
-            <ion-item class="item-icon-right">
-                <i class="icon ion-ios-minus positive" ng-click="showConfirm()"></i>
-
-                <h3 class="">一、检查项目：</h3>
-            </ion-item>
-            <ion-item class="item-icon-right" ui-sref="security-check-add-subject-detail" nav-direction="forward">
-                <i class="icon ion-ios-arrow-right"></i>
-                <span>项目一</span>
-            </ion-item>
-            <ion-item class="item-icon-right">
-                <i class="icon ion-ios-plus positive" ui-sref="security-check-add-issue"></i>
-
-                <h3 class="">检查问题：</h3>
-            </ion-item>
-            <ion-item>
-                <p><span>1.</span>问题一问题一问题一问题一问题一问题一问题一问题一问题一问题一问题一问题一问题一</p>
-            </ion-item>
-            <ion-item>
-                <p><span>2.</span>问题一</p>
-            </ion-item>
-            <ion-item>
-                <p><span>3.</span>问题一</p>
-            </ion-item>
-        </ion-list>
-        <ion-list class="list">
-            <ion-item class="item-icon-right">
-                <i class="icon ion-ios-minus positive" ng-click="showConfirm()"></i>
-
-                <h3 class="">一、检查项目：</h3>
-            </ion-item>
-            <ion-item class="item-icon-right" ui-sref="security-check-add-subject-detail">
-                <i class="icon ion-ios-arrow-right"></i>
-                <span>项目一</span>
-            </ion-item>
-            <ion-item class="item-icon-right">
-                <i class="icon ion-ios-plus positive" ui-sref="security-check-add-issue"></i>
-
-                <h3 class="">检查问题：</h3>
-            </ion-item>
-            <ion-item>
-                <p><span>1.</span>问题一问题一问题一问题一问题一问题一问题一问题一问题一问题一问题一问题一问题一</p>
-            </ion-item>
-            <ion-item>
-                <p><span>2.</span>问题一</p>
-            </ion-item>
-            <ion-item>
-                <p><span>3.</span>问题一</p>
+        <ion-list>
+            <ion-item class="item positive center" ng-click='segureToNewIssure()'>
+                <i class="icon ion-plus"></i> 新增检查内容
             </ion-item>
         </ion-list>
     </ion-content>

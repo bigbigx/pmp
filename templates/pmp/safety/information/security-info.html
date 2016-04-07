@@ -1,15 +1,15 @@
-<ion-header-bar align-title="center" class="bar-positive has-tabs-header">
-    <div class="buttons">
+<ion-view>
+    <ion-nav-buttons side="left">
         <button class="button button-icon ion-ios-arrow-left" nav-direction="back" ui-sref="frame/home">
         </button>
-    </div>
-    <div class="button-bar tab-title">
-        <a class="button button-light" ui-sref="security-info" nav-direction="enter">安全资料</a>
-        <a class="button button-outline" ui-sref="security-check" nav-direction="enter">安全检查</a>
-    </div>
-</ion-header-bar>
+    </ion-nav-buttons>
+    <ion-nav-title class="has-tabs-header">
+        <div class="button-bar tab-title">
+            <a class="button button-light" ui-sref="security-info" nav-direction="enter">安全资料</a>
+            <a class="button button-outline" ui-sref="security-check" nav-direction="enter">安全检查</a>
+        </div>
+    </ion-nav-title>
 
-<ion-view>
     <ion-content class="has-header safety-info-view" nav-direction="forward" overflow-scroll="false">
         <ion-list>
             <!-- 安全管理 开始 -->

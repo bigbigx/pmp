@@ -1,13 +1,12 @@
-<ion-header-bar class="bar-positive" align-title="center">
-    <div class="buttons">
+<ion-view view-title="{{checkItem.checkItemName}}">
+    <ion-nav-buttons side="left">
         <button class="button button-icon ion-ios-arrow-back" nav-direction="back" ui-sref="security-check-add-subject">
         </button>
-    </div>
-    <div class="h1 title">{{checkItem.checkItemName}}</div>
-    <button class="button button-clear" ui-sref="security-check-add-subject">确定</button>
-</ion-header-bar>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ui-sref="security-check-add-subject">确定</button>
+    </ion-nav-buttons>
 
-<ion-view>
     <ion-content scroll="false">
         <ion-scroll>
             <ion-list>
