@@ -88,102 +88,33 @@
             </div>
         </div>
         <!-- 固定显示区 结束 -->
+
         <!-- 滚动显示区 开始 -->
         <ion-scroll class="filter-scroll has-subheader">
+            <!-- 上拉刷新 -->
+            <ion-refresher on-refresh="refreshListData()" pulling-text="下拉刷新数据" refreshing-text="刷新中..."
+                           refreshing-icon="ion-loading-b"></ion-refresher>
             <div class="list ">
-                <ion-item class="item-avatar">
+                <ion-item class="item-avatar" ng-repeat="item in queryCheckList">
                     <div class="left-img item-image">
-                        <div class="check-icon royal-bg f12">
-                            <span>待<br>处理</span>
+                        <div class="check-icon f12" ng-class="item.state == 2 ? 'energized-bg' : item.state == 3 ? 'assertive-bg' : 'royal-bg' ">
+                            <!-- 两种方式实现 根据状态改变试图展示 哪个更好呢？-->
+                            <!--<span>{{checkStateName(item.state) | limitTo:1}}<br>{{checkStateName(item.state) | limitTo:-2}}</span>-->
+                            <span ng-if="item.state == 2">待<br>复查</span>
+                            <span ng-if="item.state == 3">未<br>通过</span>
+                            <span ng-if="item.state == 4">待<br>处理</span>
                         </div>
                     </div>
-                    <h3 class="f14">日常检查</h3>
-                    <p>日常检查日常检查日常检查日常。</p>
-                    <i class="badge">2016-12-03</i>
-                </ion-item>
-                <ion-item class="item-avatar">
-                    <div class="left-img item-image">
-                        <div class="check-icon energized-bg f12">
-                            <span>待<br>复查</span>
-                        </div>
-                    </div>
-                    <h3 class="f14">日常检查</h3>
-                    <p>日常检查日常检查日常检查日常。</p>
-                    <i class="badge">2016-12-03</i>
-                </ion-item>
-                <ion-item class="item-avatar">
-                    <div class="left-img item-image">
-                        <div class="check-icon assertive-bg f12">
-                            <span>未<br>通过</span>
-                        </div>
-                    </div>
-                    <h3 class="f14">日常检查</h3>
-                    <p>日常检查日常检查日常检查日常。</p>
-                    <i class="badge">2016-12-03</i>
-                </ion-item>
-                <ion-item class="item-avatar">
-                    <div class="left-img item-image">
-                        <div class="check-icon royal-bg f12">
-                            <span>待<br>处理</span>
-                        </div>
-                    </div>
-                    <h3 class="f14">日常检查</h3>
-                    <p>日常检查日常检查日常检查日常。</p>
-                    <i class="badge">2016-12-03</i>
-                </ion-item>
-                <ion-item class="item-avatar">
-                    <div class="left-img item-image">
-                        <div class="check-icon energized-bg f12">
-                            <span>待<br>复查</span>
-                        </div>
-                    </div>
-                    <h3 class="f14">日常检查</h3>
-                    <p>日常检查日常检查日常检查日常。</p>
-                    <i class="badge">2016-12-03</i>
-                </ion-item>
-                <ion-item class="item-avatar">
-                    <div class="left-img item-image">
-                        <div class="check-icon assertive-bg f12">
-                            <span>未<br>通过</span>
-                        </div>
-                    </div>
-                    <h3 class="f14">日常检查</h3>
-                    <p>日常检查日常检查日常检查日常。</p>
-                    <i class="badge">2016-12-03</i>
-                </ion-item>
-                <ion-item class="item-avatar">
-                    <div class="left-img item-image">
-                        <div class="check-icon royal-bg f12">
-                            <span>待<br>处理</span>
-                        </div>
-                    </div>
-                    <h3 class="f14">日常检查</h3>
-                    <p>日常检查日常检查日常检查日常。</p>
-                    <i class="badge">2016-12-03</i>
-                </ion-item>
-                <ion-item class="item-avatar">
-                    <div class="left-img item-image">
-                        <div class="check-icon energized-bg f12">
-                            <span>待<br>复查</span>
-                        </div>
-                    </div>
-                    <h3 class="f14">日常检查</h3>
-                    <p>日常检查日常检查日常检查日常。</p>
-                    <i class="badge">2016-12-03</i>
-                </ion-item>
-                <ion-item class="item-avatar">
-                    <div class="left-img item-image">
-                        <div class="check-icon assertive-bg f12">
-                            <span>未<br>通过</span>
-                        </div>
-                    </div>
-                    <h3 class="f14">日常检查</h3>
-                    <p>日常检查日常检查日常检查日常。</p>
-                    <i class="badge">2016-12-03</i>
+                    <h3 class="f14">{{item.checkTypeId}}</h3>
+                    <p>{{item.checkInfoProblemClassList[0].checkInfoDetailList[0].checkContentName}}</p>
+                    <i class="badge">{{item.checkDate}}</i>
                 </ion-item>
             </div>
         </ion-scroll>
         <!-- 滚动显示区 结束 -->
+
+        <!-- 下拉刷新 -->
+        <ion-infinite-scroll on-infinite="loadListData()" distance="1%" ng-if="loadCompleted"></ion-infinite-scroll>
     </ion-content>
 </ion-view>
 
